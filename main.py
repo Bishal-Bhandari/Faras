@@ -24,10 +24,18 @@ class CalcCard:
             for x in range(3):
                 sec_list = []
                 sec_list.append(random.choice(Card_Color))
-                sec_list.append(random.choice(Card_Shape))
+                if sec_list[0] == Card_Color[0]:
+                    rand_num = random.randint(0, 1)
+                    sec_list.append(Card_Shape[rand_num])
+                else:
+                    rand_num = random.randint(2, 3)
+                    sec_list.append(Card_Shape[rand_num])
                 sec_list.append(random.randint(1, 13))
             prim_dict[name] = sec_list
-            print(prim_dict)
+        self.main_cal(prim_dict)
+
+    def main_cal(self, value_dic):
+        print(value_dic)
 
 
 def main():
