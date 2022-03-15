@@ -2,9 +2,11 @@ import random
 
 Card_Color = ["Red", "Black"]
 Card_Shape = ["Hearts", "Diamonds", "Clubs", "Spades"]
+Card_Turn = ["First", "Second", "Third"]
 Card_Deck = 52
 Players_Name = []
 prim_dict = {}
+sec_dict = {}
 
 
 # for card calculation
@@ -21,7 +23,7 @@ class CalcCard:
 
     def value_assign(self, players_name):
         for name in players_name:
-            for x in range(3):
+            for turn in Card_Turn:
                 sec_list = []
                 sec_list.append(random.choice(Card_Color))
                 if sec_list[0] == Card_Color[0]:
@@ -31,7 +33,8 @@ class CalcCard:
                     rand_num = random.randint(2, 3)
                     sec_list.append(Card_Shape[rand_num])
                 sec_list.append(random.randint(1, 13))
-            prim_dict[name] = sec_list
+                sec_dict[turn] = sec_list
+            prim_dict[name] = sec_dict
         self.main_cal(prim_dict)
 
     def main_cal(self, value_dic):
