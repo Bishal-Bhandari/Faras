@@ -35,7 +35,7 @@ class CalcCard:
                     sec_list.append(Card_Shape[rand_num])
                 sec_list.append(random.randint(1, 13))
                 sec_dict[turn] = sec_list
-            prim_dict[name] = sec_dict
+            prim_dict[name] = sec_dict.copy()
         calculations = Calculation(prim_dict)
         calculations.main_cal()
 
