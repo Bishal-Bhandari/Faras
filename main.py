@@ -1,4 +1,5 @@
 import random
+from CalMain import Calculation
 
 Card_Color = ["Red", "Black"]
 Card_Shape = ["Hearts", "Diamonds", "Clubs", "Spades"]
@@ -16,7 +17,7 @@ class CalcCard:
 
     def name_players(self):
         for players in range(1, self.num_of_players + 1, 1):
-            print(f"Please enter the name for player {players}")
+            print(f"\nPlease enter the name for player {players}")
             players = str(input("Game name:  "))
             Players_Name.append(players)
         self.value_assign(Players_Name)
@@ -35,21 +36,24 @@ class CalcCard:
                 sec_list.append(random.randint(1, 13))
                 sec_dict[turn] = sec_list
             prim_dict[name] = sec_dict
-        self.main_cal(prim_dict)
+        calculations = Calculation(prim_dict)
+        calculations.main_cal()
 
-    def main_cal(self, value_dic):
-        print(value_dic)
+
 
 
 def main():
     print("\nWELCOME TO 3 CARDS GAME.")
-    number_of_players = int(input("\nEnter the number of players: "))
-    # make sure cards are sufficient for all players
-    if 2 <= number_of_players <= int(17):
-        calculation = CalcCard(number_of_players)
-        calculation.name_players()
-    else:
-        print("\nPlease this game is only for players between 2 to 17.\n Thank You!!!")
+    try:
+        number_of_players = int(input("\nEnter the number of players: "))
+        # make sure cards are sufficient for all players
+        if 2 <= number_of_players <= int(17):
+            calculation = CalcCard(number_of_players)
+            calculation.name_players()
+        else:
+            print("\nPlease this game is only for players between 2 to 17.\n Thank You!!!")
+    except ValueError:
+        print("\nPlease enter valid number of player.")
 
 
 main()
