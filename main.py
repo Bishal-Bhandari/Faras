@@ -43,7 +43,6 @@ class CalcCard:
                     sec_list.append(random.randint(1, 13))
                     # to check if program doesnt generate same card again
                     check_card_list.append(sec_list)
-                    print(check_card_list)
                     for check_key in check_card_list[:-1]:
                         if check_key == sec_list:
                             duplicate_card = True
