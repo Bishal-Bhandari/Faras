@@ -1,4 +1,3 @@
-
 import random
 from CalMain import Calculation
 
@@ -7,8 +6,8 @@ Card_Shape = ["Hearts", "Diamonds", "Clubs", "Spades"]
 Card_Turn = ["First", "Second", "Third"]
 Card_Deck = 52
 Players_Name = []
+check_card_list = []
 prim_dict = {}
-sec_dict = {}
 
 
 # for card calculation
@@ -25,16 +24,34 @@ class CalcCard:
 
     def value_assign(self, players_name):
         for name in players_name:
+            sec_dict = {}
             for turn in Card_Turn:
-                sec_list = []
-                sec_list.append(random.choice(Card_Color))
-                if sec_list[0] == Card_Color[0]:
-                    rand_num = random.randint(0, 1)
-                    sec_list.append(Card_Shape[rand_num])
-                else:
-                    rand_num = random.randint(2, 3)
-                    sec_list.append(Card_Shape[rand_num])
-                sec_list.append(random.randint(1, 13))
+                # count for loop to stop overloading into the memory
+                count = 0
+                duplicate_card = True
+                # loop to assign the card again if duplicate is assigned
+                while duplicate_card or count <= 3:
+                    sec_list = []
+                    # cards assigning
+                    sec_list.append(random.choice(Card_Color))
+                    if sec_list[0] == Card_Color[0]:
+                        rand_num = random.randint(0, 1)
+                        sec_list.append(Card_Shape[rand_num])
+                    else:
+                        rand_num = random.randint(2, 3)
+                        sec_list.append(Card_Shape[rand_num])
+                    sec_list.append(random.randint(1, 13))
+                    # to check if program doesnt generate same card again
+                    check_card_list.append(sec_list)
+                    print(check_card_list)
+                    for check_key in check_card_list[:-1]:
+                        if check_key == sec_list:
+                            duplicate_card = True
+                            count += 1
+                        else:
+                            duplicate_card = False
+                    if not duplicate_card:
+                        break
                 sec_dict[turn] = sec_list
             prim_dict[name] = sec_dict.copy()
         calculations = Calculation(prim_dict)

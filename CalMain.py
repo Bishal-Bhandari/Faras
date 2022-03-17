@@ -7,5 +7,5 @@ class Calculation:
         for init_value in self.value_dic:
             # for each card of individual player
             temp_list = self.value_dic[init_value]
-            for card in temp_list:
-                print(self.value_dic[init_value][card])
+            # for card in temp_list:
+            #     print(self.value_dic[init_value][card])
