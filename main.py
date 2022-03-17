@@ -1,3 +1,4 @@
+
 import random
 from CalMain import Calculation
 
@@ -38,8 +39,6 @@ class CalcCard:
             prim_dict[name] = sec_dict.copy()
         calculations = Calculation(prim_dict)
         calculations.main_cal()
-
-
 
 
 def main():
