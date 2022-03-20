@@ -51,6 +51,7 @@ class CalcCard:
         return sec_list, check_card_list
 
 
+# MAIN FUNCTION
 def main():
     print("\nWELCOME TO 3 CARDS GAME.")
     try:
