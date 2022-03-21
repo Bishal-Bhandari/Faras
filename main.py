@@ -2,7 +2,7 @@ import random
 from CalMain import Calculation
 
 Card_Color = ["Red", "Black"]
-Card_Shape = ["Hearts", "Diamonds", "Clubs", "Spades"]
+Card_Shape = ["Heart", "Diamond", "Club", "Spade"]
 Card_Turn = ["First", "Second", "Third"]
 Card_Deck = 52
 Players_Name = []
