@@ -1,9 +1,10 @@
 import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 import openpyxl
+import numpy
 
 Player_Value = []
-color_value = []
+Player_Name = []
 
 
 class Calculation:
@@ -11,7 +12,6 @@ class Calculation:
         self.value_dic = value_dic
 
     def main_cal(self):
-        global color_value
         # for each individual players
         for init_value in self.value_dic:
             # for each card of individual player
@@ -32,9 +32,9 @@ class Calculation:
             color2 = temp_list["Second"][1]
             color3 = temp_list["Third"][1]
             if color1 == color2 == color3:
-                color_value.append(True)
+                color_value = 1
             else:
-                color_value.append(False)
+                color_value = 0
 
             # read file
             read_file = pd.read_excel(r'NumberRule.xlsx')
@@ -49,24 +49,23 @@ class Calculation:
             # form above for prediction using tree for number value
             mod_tree.fit(dataset_cond.values, output_dataset)
             # prediction with given data
-            prediction_result = mod_tree.predict([[num1, num2, num3]])
+            prediction_result = mod_tree.predict([[num1, num2, num3, color_value]])
             # prediction based on previous data
             Player_Value.append(prediction_result[0])
-        self.winner(Player_Value, color_value)
 
-    def winner(self, pla_vlu, col_vlu):
-        print(pla_vlu)
-        # print(self.value_dic)
-        # for each individual players
-        for i, init_value in enumerate(self.value_dic):
-            if 1 <= pla_vlu[i] <= 13:
-                print("Trail")
-            elif 14 <= pla_vlu[i] <= 25 and col_vlu[i]:
-                print("color and Sequence")
-            elif 14 <= pla_vlu[i] <= 25 and not col_vlu[i]:
-                print("Sequence")
-            elif 26 <= pla_vlu[i] <= 181:
-                print("Double")
-            else:
-                print("normal")
-            print(self.value_dic[init_value])
+        # getting the key
+        for key in self.value_dic:
+            Player_Name.append(key)
+        # making the dict from two lists
+        result_dict = dict(zip(Player_Name, Player_Value))
+
+        self.winner(result_dict)
+
+    def winner(self, res_dict):
+        # sorting the dict according to its value
+        result = dict(sorted(res_dict.items(), key=lambda item: item[1]))
+
+        # result printing
+        print(f'Rank : Name')
+        for i, val in enumerate(result):
+            print(f'{i + 1}    :   {val}')
