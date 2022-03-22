@@ -55,18 +55,18 @@ class Calculation:
         self.winner(Player_Value, color_value)
 
     def winner(self, pla_vlu, col_vlu):
-
+        print(pla_vlu)
+        # print(self.value_dic)
         # for each individual players
         for i, init_value in enumerate(self.value_dic):
-            if pla_vlu[i] <= pla_vlu[i + 1]:
-                temp_pla_vlu = pla_vlu[i]
-                # if 1 <= pla_vlu[i] <= 13:
-                #     print("Trail")
-                # elif 14 <= pla_vlu[i] <= 25 and col_vlu[i]:
-                #     print("color and Sequence")
-                # elif 14 <= pla_vlu[i] <= 25 and not col_vlu[i]:
-                #     print("Sequence")
-                # elif 26 <= pla_vlu[i] <= 181:
-                #     print("Double")
-                # else:
-                #     print("normal")
+            if 1 <= pla_vlu[i] <= 13:
+                print("Trail")
+            elif 14 <= pla_vlu[i] <= 25 and col_vlu[i]:
+                print("color and Sequence")
+            elif 14 <= pla_vlu[i] <= 25 and not col_vlu[i]:
+                print("Sequence")
+            elif 26 <= pla_vlu[i] <= 181:
+                print("Double")
+            else:
+                print("normal")
+            print(self.value_dic[init_value])
