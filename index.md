@@ -1,37 +1,18 @@
 ## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/Bishal-Bhandari/Faras/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+## Welcome to the Faras wiki!
+### 👋 3 cards game played among multiple players without GUI. 👋
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+**🌱 Rules for the games are as below:**
 
-### Markdown
+_👀 Trail: Three cards with the same rank where AAA is the highest rank._
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+_👀 Pure Sequence: Three consecutive sequences of cards of the same shape. Eg: 5-6-7 of Club or j-q-k of Hearts_
 
-```markdown
-Syntax highlighted code block
+_👀 Sequence: Just three consecutive sequences of cards._
 
-# Header 1
-## Header 2
-### Header 3
+_👀 Color: Cards with the same shape. Eg: 5-8-10 of Spade_
 
-- Bulleted
-- List
+_👀 Pair: Pair of two cards of the same rank. If double cards are drawn then the highest third card will determine the winner. Eg: A-A-2 or 6-5-6_
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Bishal-Bhandari/Faras/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+_👀 High Card: If none of the above then the player with the highest card will win. Eg: A-2-K vs A-3-10 = A-2-K will win._
