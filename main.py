@@ -68,9 +68,12 @@ def main():
             cards = from_name_players[2]
 
             # result printing
-            print(f'Rank :    Value         :   Name')
+            x = ' '
             for i, val in enumerate(rank_name):
-                print(f'{i + 1}    :   {value[i]}    :  {val}  =====Your Cards=====> {cards[i]}')
+                # print(f'{i + 1}    :   {value[i]}    :  {val}  =====Your Cards=====> {cards[i]}')
+                print('\x1b[6;30;42m' + 'Rank: ' + str(i + 1) + '\x1b[1m' + (x*3) + '\x1b[6;30;45m' + 'Name: ' +
+                      str(val) + '\x1b[1m' + (x*3) + '\x1b[0;30;43m' + 'Value: ' + str(value[i]) + '\x1b[1m' + (x*3) +
+                      (x*3) + '\x1b[6;30;47m' + 'Cards: ' + str(cards[i]) + '\x1b[0m \n')
         else:
             print("\nPlease this game is only for players between 2 to 17.\n Thank You!!!")
     except ValueError:
