@@ -1,5 +1,5 @@
 # Faras
-👋 3 cards game palyed among multiple players without GUI. 👋
+👋 3 cards game palyed among multiple players without GUI using descision tree algorithm. 👋
 
 🌱 Rules for the games are as below:
 
