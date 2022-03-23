@@ -20,7 +20,8 @@ class CalcCard:
             print(f"\nPlease enter the name for player {players}")
             players = str(input("Game name:  "))
             Players_Name.append(players)
-        self.value_assign(Players_Name)
+        from_value_assign = self.value_assign(Players_Name)
+        return from_value_assign
 
     def value_assign(self, players_name):
         for name in players_name:
@@ -35,7 +36,8 @@ class CalcCard:
                 sec_dict[turn] = sec_list
             prim_dict[name] = sec_dict.copy()
         calculations = Calculation(prim_dict)
-        calculations.main_cal()
+        from_main_call = calculations.main_cal()
+        return from_main_call
 
     def feature_card(self, sec_list, check_card_list):
         sec_list.append(random.choice(Card_Color))
@@ -59,7 +61,16 @@ def main():
         # make sure cards are sufficient for all players
         if 2 <= number_of_players <= int(17):
             calculation = CalcCard(number_of_players)
-            calculation.name_players()
+            from_name_players = calculation.name_players()
+            # list and dict to var
+            rank_name = from_name_players[0]
+            value = from_name_players[1]
+            cards = from_name_players[2]
+
+            # result printing
+            print(f'Rank :    Value         :   Name')
+            for i, val in enumerate(rank_name):
+                print(f'{i + 1}    :   {value[i]}    :  {val}  =====Your Cards=====> {cards[i]}')
         else:
             print("\nPlease this game is only for players between 2 to 17.\n Thank You!!!")
     except ValueError:

@@ -58,14 +58,36 @@ class Calculation:
             Player_Name.append(key)
         # making the dict from two lists
         result_dict = dict(zip(Player_Name, Player_Value))
-
-        self.winner(result_dict)
+        from_winner = self.winner(result_dict)
+        return from_winner
 
     def winner(self, res_dict):
+
         # sorting the dict according to its value
         result = dict(sorted(res_dict.items(), key=lambda item: item[1]))
 
-        # result printing
-        print(f'Rank : Name')
+        # for the result
+        card_value = []
+        players_card = []
         for i, val in enumerate(result):
-            print(f'{i + 1}    :   {val}')
+            if 1 <= result[val] <= 13:
+                players_card.append(self.value_dic[val])
+                card_value.append('Trail')
+            elif 14 <= result[val] <= 25:
+                players_card.append(self.value_dic[val])
+                card_value.append('Pure Sequence')
+            elif 26 <= result[val] <= 37:
+                players_card.append(self.value_dic[val])
+                card_value.append('Sequence')
+            elif 38 <= result[val] <= 311:
+                players_card.append(self.value_dic[val])
+                card_value.append('Color')
+            elif 312 <= result[val] <= 467:
+                players_card.append(self.value_dic[val])
+                card_value.append('Double')
+            else:
+                players_card.append(self.value_dic[val])
+                card_value.append('Normal Card')
+
+        return result, card_value, players_card
+
