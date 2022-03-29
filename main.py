@@ -53,31 +53,41 @@ class CalcCard:
         return sec_list, check_card_list
 
 
-# MAIN FUNCTION
-def main():
+# Result FUNCTION
+def result_fun():
     print("\nWELCOME TO 3 CARDS GAME.")
     try:
         number_of_players = int(input("\nEnter the number of players: "))
         # make sure cards are sufficient for all players
-        if 2 <= number_of_players <= int(17):
-            calculation = CalcCard(number_of_players)
-            from_name_players = calculation.name_players()
-            # list and dict to var
-            rank_name = from_name_players[0]
-            value = from_name_players[1]
-            cards = from_name_players[2]
+        run = True
+        while run:
+            if 2 <= number_of_players <= int(17):
+                calculation = CalcCard(number_of_players)
+                from_name_players = calculation.name_players()
+                # list and dict to var
+                rank_name = from_name_players[0]
+                value = from_name_players[1]
+                cards = from_name_players[2]
 
-            # result printing
-            x = ' '
-            for i, val in enumerate(rank_name):
-                # print(f'{i + 1}    :   {value[i]}    :  {val}  =====Your Cards=====> {cards[i]}')
-                print('\x1b[6;30;42m' + 'Rank: ' + str(i + 1) + '\x1b[1m' + (x*3) + '\x1b[6;30;45m' + 'Name: ' +
-                      str(val) + '\x1b[1m' + (x*3) + '\x1b[0;30;43m' + 'Value: ' + str(value[i]) + '\x1b[1m' + (x*3) +
-                      (x*3) + '\x1b[6;30;47m' + 'Cards: ' + str(cards[i]) + '\x1b[0m \n')
-        else:
-            print("\nPlease this game is only for players between 2 to 17.\n Thank You!!!")
+                # result printing
+                x = ' '
+                for i, val in enumerate(rank_name):
+                    # print(f'{i + 1}    :   {value[i]}    :  {val}  =====Your Cards=====> {cards[i]}')
+                    print('\x1b[6;30;42m' + 'Rank: ' + str(i + 1) + '\x1b[1m' + (x * 3) + '\x1b[6;30;45m' + 'Name: ' +
+                          str(val) + '\x1b[1m' + (x * 3) + '\x1b[0;30;43m' + 'Value: ' + str(value[i]) + '\x1b[1m' + (
+                                      x * 3) +
+                          (x * 3) + '\x1b[6;30;47m' + 'Cards: ' + str(cards[i]) + '\x1b[0m \n')
+            else:
+                print("\nPlease this game is only for players between 2 to 17.\n Thank You!!!")
+            des = str(input("\nEnter \"Y\" to play again. \"N\" to exit. \"C\" to change number of players: ")).upper()
+            if des == 'Y':
+                run = True
+            elif des == 'C':
+                result_fun()
+            else:
+                exit()
     except ValueError:
         print("\nPlease enter valid number of player.")
 
 
-main()
+result_fun()
