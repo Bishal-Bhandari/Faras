@@ -79,7 +79,7 @@ def result_fun():
                           (x * 3) + '\x1b[6;30;47m' + 'Cards: ' + str(cards[i]) + '\x1b[0m \n')
             else:
                 print("\nPlease this game is only for players between 2 to 17.\n Thank You!!!")
-            des = str(input("\nEnter \"Y\" to play again. \"N\" to exit. \"C\" to change number of players: ")).upper()
+            des = str(input("\nEnter \"Y\" to play again. Enter \"C\" to change number of players. Enter \"N\" to exit: ")).upper()
             if des == 'Y':
                 run = True
             elif des == 'C':
